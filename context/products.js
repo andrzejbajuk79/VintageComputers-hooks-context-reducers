@@ -6,7 +6,7 @@ import React, {
  useReducer,
 } from 'react';
 import axios from 'axios';
-import {featuredProducts} from '../utils/helpers';
+import {featuredProducts, flattenPoducts} from '../utils/helpers';
 import url from '../utils/URL';
 import {initialState} from './initialState';
 
@@ -30,9 +30,12 @@ export const ProductProvider = ({children}) => {
  useEffect(() => {
   setLoading(true);
   axios.get(`${url}/products`).then((response) => {
-   const featured = featuredProducts(response.data);
+   console.log(response.data);
+   // const featured = featuredProducts(response.data);
+   const featured = featuredProducts(flattenPoducts(response.data));
+   const products = flattenPoducts(response.data);
    //set products
-   setProducts(response.data);
+   setProducts(products);
    //set featured
    setFeatured(featured);
    setLoading(false);
