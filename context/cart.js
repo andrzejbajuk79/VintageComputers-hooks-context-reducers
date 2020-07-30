@@ -52,9 +52,30 @@ function CartProvider({children}) {
   }
  };
  // remove item from cart
- const addToCart = (product) => {};
+ const addToCart = (product) => {
+  const {
+   id,
+   image: {url},
+   title,
+   price,
+  } = product;
+  //sprawdzmy czy po kliknieciu dodaj dany produkt
+  // jest juz w naszym koszyku zakupow
+  const item = [...cart].find((item) => item.id === id);
+  if (item) {
+   increaseAmount(id);
+   return;
+  } else {
+   const newItem = {id, image: url, title, price, amount: 1};
+   const newCart = [...cart, newItem];
+   setCart(newCart);
+  }
+  console.log(product);
+ };
  // clear cart
- const clearCart = () => {};
+ const clearCart = () => {
+  setCart([]);
+ };
 
  const value = {
   cart,
