@@ -11,20 +11,34 @@ import ProductsDetails from './pages/ProductDetails';
 //components
 import Header from './components/Header';
 
-export default function App () {
-  return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route path="/" exact><Home /></Route>
-        <Route path="/about"><About /></Route>
-        <Route path="/cart"><Cart /></Route>
-        <Route path="/ccheckout"><Checkout /></Route>
-        <Route path="/login"><Login /></Route>
-        <Route exact path="/products"><Products /></Route>
-        <Route path="/products/:id" children={<ProductsDetails />} />
-        <Route path="*"><Error /></Route>
-      </Switch>
-    </Router>
-  );
+export default function App() {
+ return (
+  <Router>
+   <Header />
+   <Switch>
+    <Route path='/' exact>
+     <Home />
+    </Route>
+    <Route path='/about'>
+     <About />
+    </Route>
+    <Route path='/cart'>
+     <Cart />
+    </Route>
+    <Route path='/checkout'>
+     <Checkout />
+    </Route>
+    <Route path='/login'>
+     <Login />
+    </Route>
+    <Route exact path='/products'>
+     <Products />
+    </Route>
+    <Route path='/products/:id' children={<ProductsDetails />} />
+    <Route path='*'>
+     <Error />
+    </Route>
+   </Switch>
+  </Router>
+ );
 }
