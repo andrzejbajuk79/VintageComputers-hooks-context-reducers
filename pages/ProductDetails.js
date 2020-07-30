@@ -2,14 +2,14 @@ import React from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 import {ProductState} from '../context/products';
 import Loading from '../components/Loading';
-// import CardtState from '../context/card'
+import {CartState} from '../context/cart';
 
 export default function ProductDetails() {
- console.log('paramtery', useParams());
+ // console.log('paramtery', useParams());
  const {id} = useParams();
-
  const history = useHistory();
  const {products} = ProductState();
+ const {addToCart} = CartState();
  const product = products.find((item) => item.id === parseInt(id));
  if (products.length === 0) {
   return <Loading />;
@@ -30,6 +30,7 @@ export default function ProductDetails() {
      <button
       onClick={() => {
        //add to card
+       addToCart(product);
        history.push('/cart');
       }}
       className='btn btn-primary btn-block'
