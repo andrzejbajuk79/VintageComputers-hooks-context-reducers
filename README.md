@@ -17,7 +17,7 @@ backend jest w strapi.io.
 
 ## Preview
 
-![sass-js-coding-test screenshot](?raw=true)
+![sass-js-coding-test screenshot](https://github.com/andrzejbajuk79/VintageComputers-hooks-context-reducers/blob/master/2020-08-01_16h30_38.png?raw=true)
 ![sass-js-coding-test screenshot](?raw=true)
 ![sass-js-coding-test screenshot](?raw=true)
 ![sass-js-coding-test screenshot](?raw=true)
