@@ -1,4 +1,5 @@
 import React from 'react';
+import {FaAngleDoubleLeft, FaAngleDoubleRight} from 'react-icons/fa';
 import ProductList from './ProductList';
 import {ProductState} from '../../context/products';
 
@@ -12,6 +13,12 @@ const PageProducts = (props) => {
     {sorted.length > 1 && (
      <article className='pagination-buttons'>
       {/* prev button */}
+      {page > 0 && (
+       <button onClick={() => changePage(page - 1)} className='prev-page-btn'>
+        <FaAngleDoubleLeft />
+       </button>
+      )}
+
       {
        //genereujemy ilosc buttono na podstawie wielkosci tabeli
        sorted.map((_, index) => {
@@ -27,6 +34,12 @@ const PageProducts = (props) => {
         );
        })
       }
+      {/* next button */}
+      {page < sorted.length - 1 && (
+       <button onClick={() => changePage(page + 1)} className='prev-page-btn'>
+        <FaAngleDoubleRight />
+       </button>
+      )}
      </article>
     )}
    </>
