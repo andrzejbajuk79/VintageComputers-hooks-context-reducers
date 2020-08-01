@@ -17,3 +17,23 @@ export function featuredProducts(data) {
   return item.featured === true;
  });
 }
+export function paginate(products) {
+ const itemPerPage = 3;
+ const numberOfPages = Math.ceil(products.length / itemPerPage);
+
+ //na podstawie obiekty z wlasciwoscia length, powstanie nowa tabela
+ //o takiej wielkosci
+ //z kazda iteracja zabiera 4 elementy i wklada do nowej tabeli
+ // const newProducts = Array.from({length: numberOfPages}, () => {
+ //  return products.splice(0, itemPerPage);
+ // });
+
+ //slice, pierwszy parametr to item- pomijamy
+ const newProducts = Array.from({length: numberOfPages}, (_, index) => {
+  console.log(index);
+  const start = index * itemPerPage;
+  return products.slice(start, start + itemPerPage);
+ });
+
+ return newProducts;
+}
