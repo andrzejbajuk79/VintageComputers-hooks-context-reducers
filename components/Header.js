@@ -1,8 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import logo from '../assets/amiga.png';
+import LoginLink from '../components/LoginLink';
 import CartLink from '../components/Cart/CartLink';
+import {UserState} from '../context/user';
+
 export default function Header() {
+ const {user} = UserState();
  return (
   <header className='header'>
    <img src={logo} alt='stare kompy' className='logo' />
@@ -18,11 +22,14 @@ export default function Header() {
       <li>
        <Link to='/products'>Products</Link>
       </li>
+      {user.token && (
+       <li>
+        <Link to='/checkout'>Checkout</Link>
+       </li>
+      )}
      </div>
      <div>
-      <li>
-       <Link to='/login'>Login</Link>
-      </li>
+      <LoginLink />
       <CartLink />
      </div>
     </ul>

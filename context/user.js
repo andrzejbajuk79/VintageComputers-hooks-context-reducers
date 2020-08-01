@@ -21,6 +21,7 @@ function getUserFromLocalStorage () {
 export function UserProvider({children}) {
   // const [user, setUser] = useState ({username: null, toke: null});
   const [user, setUser] = useState (getUserFromLocalStorage ());
+  const [alert, setAlert] = useState ({show: false, msg: '', type: 'success'});
 
   const userLogin = user => {
     console.log ('user', user);
@@ -31,8 +32,13 @@ export function UserProvider({children}) {
     setUser ({username: null, token: null});
     localStorage.removeItem ('user');
   };
-
-  const value = {user, userLogin, userLogout};
+  const showAlert = ({msg, type = 'success'}) => {
+    setAlert ({show: true, msg, type});
+  };
+  const hideAlert = () => {
+    setAlert ({...alert, show: false});
+  };
+  const value = {user, userLogin, userLogout, alert, showAlert, hideAlert};
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
 

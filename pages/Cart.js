@@ -1,12 +1,13 @@
 import React from 'react';
-import {CartState} from '../context/cart';
 import EmptyCart from '../components/Cart/EmptyCart';
 import CartItem from '../components/Cart/CartItem';
 import {Link} from 'react-router-dom';
+import {CartState} from '../context/cart';
+import {UserState} from '../context/user';
 
 export default function Cart() {
- let user = false;
  const {total, cart} = CartState();
+ const {user} = UserState();
 
  if (cart.length === 0) {
   return <EmptyCart />;
@@ -18,7 +19,7 @@ export default function Cart() {
     return <CartItem key={item.id} {...item} />;
    })}
    <h2>total : PLN {total}</h2>
-   {user ? (
+   {user.token ? (
     <Link to='/checkout' className='btn btn-primary btn-block'>
      checkout
     </Link>
