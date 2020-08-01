@@ -7,7 +7,7 @@ export function flattenPoducts(data) {
   // let image = item.image.url;
 
   //local deployment
-  let image = `${url}${item.image.url}`;
+  let image = (item.image && `${url}${item.image.url}`) || null;
   return {...item, image};
  });
 }

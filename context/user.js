@@ -22,6 +22,7 @@ export function UserProvider({children}) {
  // const [user, setUser] = useState ({username: null, toke: null});
  const [user, setUser] = useState(getUserFromLocalStorage());
  const [alert, setAlert] = useState({show: false, msg: '', type: 'success'});
+ const [height, setHeight] = useState(0);
 
  const userLogin = (user) => {
   console.log('user', user);
@@ -41,7 +42,26 @@ export function UserProvider({children}) {
  const hideAlert = () => {
   setAlert({...alert, show: false});
  };
- const value = {user, userLogin, userLogout, alert, showAlert, hideAlert};
+
+ // use effect
+ useEffect(() => {
+  window.addEventListener('scroll', () => {
+   setHeight(window.pageYOffset);
+  });
+  return () => {
+   window.removeEventListener('scroll', () => {});
+  };
+ }, [height]);
+
+ const value = {
+  height,
+  user,
+  userLogin,
+  userLogout,
+  alert,
+  showAlert,
+  hideAlert,
+ };
  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
 

@@ -1,7 +1,9 @@
 import React from 'react';
 
-export const initialState = {
- loading: false,
- products: [],
- featured: [],
+const initialState = {
+ productss: [],
+ cartItems: 0,
+ total: 0,
 };
+
+export default initialState;
