@@ -14,8 +14,8 @@ export default function Products() {
  // return <ProductList title='our product' products={sorted} />;
  return (
   <>
-   <PageProducts />
    <Filters />
+   <PageProducts />
   </>
  );
 }
