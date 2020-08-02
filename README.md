@@ -1,5 +1,8 @@
-## ZRODLO
+## DEPLOY
+> *https://wlodawa-tech-store.netlify.app*
 
+
+## ZRODLO
 _Udemy - React Tutorial and Projects Course"_
 
 _- Vintage Tech Project_
@@ -7,7 +10,6 @@ _- Vintage Tech Project_
 > **TORRENT: "Udemy - React Tutorial and Projects Course" - Vintage Tech Project**
 
 ## Zawartość
-
 -projekt sklepu internetowego z obsluga platnosci poprze stripe,
 backend jest w strapi.io.
 
