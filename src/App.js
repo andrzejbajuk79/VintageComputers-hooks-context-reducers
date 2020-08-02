@@ -25,6 +25,7 @@ export default function App() {
      <Home />
     </Route>
     <Route path='/about'>
+    
      <About />
     </Route>
     <Route path='/cart'>
